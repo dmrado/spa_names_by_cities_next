@@ -1,0 +1,27 @@
+{
+  "name": "spa_names_by_cities_next",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmrado/spa_names_by_cities_next.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmrado/spa_names_by_cities_next/issues"
+  },
+  "homepage": "https://github.com/dmrado/spa_names_by_cities_next#readme"
+}
