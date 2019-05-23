@@ -11,7 +11,7 @@ class RequestNames extends React.component{
         let last_name = e.target.element.name.value;
         //alert(names)
         if(last_name){
-            const api_url = await fetch(
+            const api_url = await fetch(//получить свой ключ и уложить его во внешний файл и подключить его
                 "https://api.vk.com/method/users.get?user_ids=210700286&fields=bdate&access_token=533bacf01e11f55b536a565b57531ac114461ae8736d6506a3&v=5.95"
                 const data = await api_url.json();
                 this.setState({//правим в соответствие с jsonОМ из VK
@@ -26,7 +26,22 @@ class RequestNames extends React.component{
             });
         }
     }//end async
-    //здесь НЕ надо рендерить, а надо как-то отправить в СУБД...?
+    //здесь НЕ надо рендерить, а надо как-то отправить в СУБД...может колнчатого типа? но пока рендерим
+    render(){
+        return(
+            <>
+                <div className="listNames">
+                    { this.props.city &&
+                    <div>
+                        <Form namesMethod={this.getNames}/>
+                        <p>Сумма людей с этой фамилией: {this.props.last_name} м.</p>
+                    </div>
+                    }
+                    <p className="error">{ this.props.error }</p>
+                </div>
+            </>
+        )
+    }
 }//class
 
 //пример ответа сервера

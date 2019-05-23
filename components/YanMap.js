@@ -1,4 +1,5 @@
 import Head from 'next/head'
+//связать этот компонент с RequestNames
 import RequestNames from "./RequestNames"
 import Form from "./Form"
 
