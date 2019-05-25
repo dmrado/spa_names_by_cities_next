@@ -4,13 +4,13 @@ import RequestNames from "./RequestNames"
 import Form from "./Form"
 
 //ymaps создается в объекте window как глобальная переменная после подключения api-yandex map
-function YanMap(){
+function YanMap() {
 
-    if((typeof window !== 'undefined') && window.ymaps) {
+    if ((typeof window !== 'undefined') && window.ymaps) {
         var ymaps = window.ymaps;
         ymaps.ready(init);//если функции ready нет, то обязательно использовать ComponentDidMount
 
-        function init(){
+        function init() {
 
             var myMap;
 
@@ -26,11 +26,13 @@ function YanMap(){
                 position: {top: 15, left: 15}
             });
 
-            var myPlacemark = new ymaps.Placemark([55.7649, 37.63836] , {},
-                { iconLayout: 'default#image',
+            var myPlacemark = new ymaps.Placemark([55.7649, 37.63836], {},
+                {
+                    iconLayout: 'default#image',
                     // iconImageHref: 'мой URL',
                     iconImageSize: [40, 51],
-                    iconImageOffset: [-20, -47] });
+                    iconImageOffset: [-20, -47]
+                });
 
             myMap.geoObjects.add(myPlacemark);
 
@@ -45,9 +47,9 @@ function YanMap(){
                 />
             </Head>
             {/*не понятно что делать с формой но она нужна для получения target.element.name.value*/}
-            <Form />
+            <Form/>
 
-            <div id="map" style={{width: '600px', height: '400px', borderStyle : 'solid', borderColor : 'gray'}}
+            <div id="map" style={{width: '600px', height: '400px', borderStyle: 'solid', borderColor: 'gray'}}
             />
         </>
     );

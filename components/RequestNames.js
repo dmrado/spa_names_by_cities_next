@@ -1,43 +1,47 @@
 //import Head from next/head
 import React from "react"
+import {VK_API_KEY} from "/src/config"
 
-class RequestNames extends React.component{
+class RequestNames extends React.component {
     state = {
         last_name: undefined,
-        city: []
+        count: undefined,
+        city: undefined
     }
     getNames = async (e) => {
         e.preventDefault();
         let last_name = e.target.element.name.value;
         //alert(names)
-        if(last_name){
-            const api_url = await fetch(//получить свой ключ и уложить его во внешний файл и подключить его
-                "https://api.vk.com/method/users.get?user_ids=210700286&fields=bdate&access_token=533bacf01e11f55b536a565b57531ac114461ae8736d6506a3&v=5.95"
-                const data = await api_url.json();
-                this.setState({//правим в соответствие с jsonОМ из VK
-                    last_name: undefined,
-                    city: undefined
-                })
-            )//end fetch
+        if (last_name) {
+            const api_url = await fetch(
+                `https://api.vk.com/method/users.search?city=1&q=Radovich&access_token=${VK_API_KEY}&v=5.95`)
+            const data = await api_url.json();//await - синхронный запрос но в fetch асинхронность есть внутри
+            this.setState({//правим в соответствие с jsonОМ из VK
+                last_name: undefined,
+                count: undefined,
+                city: undefined
+            })
         }//end if
-        else{ this.setState({
-            last_name: undefined,
-            city: undefined
+        else {
+            this.setState({
+                last_name: undefined,
+                count: undefined,
+                city: undefined
             });
         }
     }//end async
     //здесь НЕ надо рендерить, а надо как-то отправить в СУБД...может колнчатого типа? но пока рендерим
-    render(){
-        return(
+    render() {
+        return (
             <>
                 <div className="listNames">
-                    { this.props.city &&
+                    {this.props.last_name &&
                     <div>
                         <Form namesMethod={this.getNames}/>
-                        <p>Сумма людей с этой фамилией: {this.props.last_name} м.</p>
+                        <p>Сумма людей с этой фамилией: {this.props.count} </p>
                     </div>
                     }
-                    <p className="error">{ this.props.error }</p>
+                    <p className="error">{this.props.error}</p>
                 </div>
             </>
         )
