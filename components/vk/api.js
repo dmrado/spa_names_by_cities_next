@@ -80,8 +80,26 @@ const getCities = params => {
   })
 }
 
+const getLocation = params => {
+  const { success, error, q, city } = params
+  const method = 'users.search'
+  const fields = {
+    q,
+    city,
+    count: 10 //это по умолчанию
+  }
+
+  makeRequest({
+    success,
+    error,
+    method,
+    fields
+  })
+}
+
 export {
   getUsers,
   getGroupMembers,
-  getCities
+  getCities,
+  getLocation
 }

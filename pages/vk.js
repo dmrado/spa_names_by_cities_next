@@ -3,6 +3,7 @@ import "../sass/styles.scss"
 import UsersList from '../components/vk/UsersList'
 import GroupMembersList from '../components/vk/GroupMembersList'
 import Cities from '../components/vk/Cities'
+import Locator from '../components/vk/Locator'
 
 export default () => {
     return (
@@ -14,6 +15,8 @@ export default () => {
             <GroupMembersList group_id={ '30022666' }/>
             <br />
             <Cities country_id = {'1'}/>
+            <br />
+            <Locator q={'Иванов'} city={'1'}/>
         </>
     );
 }
