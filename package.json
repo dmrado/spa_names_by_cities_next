@@ -5,6 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "express": "^4.17.0",
+    "isomorphic-fetch": "^2.2.1",
     "next": "^8.1.0",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
@@ -12,9 +14,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "cross-env NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",

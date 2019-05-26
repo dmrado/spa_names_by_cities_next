@@ -18,6 +18,11 @@ export default () => {
                 <a>Загрузить яндекс</a>
             </Link>
         </li>
+        <li>
+            <Link href="/vk">
+                <a>Примеры VK API</a>
+            </Link>
+        </li>
     </ul>
 );
 }
