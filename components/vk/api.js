@@ -64,7 +64,24 @@ const getGroupMembers = params => {
   })
 }
 
+const getCities = params => {
+  const { success, error, country_id } = params
+  const method = 'database.getCities'
+  const fields = {
+    country_id,
+    count: 10 //это по умолчанию
+  }
+
+  makeRequest({
+    success,
+    error,
+    method,
+    fields
+  })
+}
+
 export {
   getUsers,
-  getGroupMembers
+  getGroupMembers,
+  getCities
 }
