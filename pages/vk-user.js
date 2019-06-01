@@ -8,7 +8,6 @@ export default () => {
     return(
         <>
             <MenuVK />
-            <br />
             <UsersList user_ids={ '1,2,5,731968' }/>
         </>
     );

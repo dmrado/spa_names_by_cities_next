@@ -2,3 +2,14 @@ $font-size: 20px;
 body {
   font-size: $font-size;
 }
+
+.p-15{
+  padding: 15px;
+}
+
+@media(max-width: 740px){
+.mobile-column{
+  justify-content: flex-start !important;
+  flex-direction: column;
+  }
+}

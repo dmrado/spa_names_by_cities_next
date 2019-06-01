@@ -8,7 +8,6 @@ export default () => {
     return(
         <>
             <MenuVK />
-            <br />
             <Cities country_id = {'1'}/>
         </>
     );

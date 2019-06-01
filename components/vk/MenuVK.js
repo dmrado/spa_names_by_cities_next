@@ -1,24 +1,42 @@
 import Link from 'next/link'
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Button from '@material-ui/core/Button'
 
+const useStyles = makeStyles({
+    root: {
+        flexGrow: 1,
+    },
+});
 
-export default () => {
-    return (<ul>
-            <li>
-                <Link href="/vk-user">
-                    <a>Пользователи</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/vk-groups">
-                    <a>Группы</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/vk-cities">
-                    <a>Города</a>
-                </Link>
-            </li>
+function SimpleAppBar() {
+    const classes = useStyles();
 
-        </ul>
+    return (
+        <div className={classes.root}>
+            <AppBar position="static" color="default">
+                <Toolbar className="mobile-column">
+                        <Button>
+                            <Link href="/vk-user">
+                                <a>Пользователи</a>
+                            </Link>
+                        </Button>
+                        <Button>
+                            <Link href="/vk-groups">
+                                <a>Группы</a>
+                            </Link>
+                        </Button>
+                        <Button>
+                            <Link href="/vk-cities">
+                                <a>Города</a>
+                            </Link>
+                        </Button>
+                </Toolbar>
+            </AppBar>
+        </div>
     );
 }
+
+export default SimpleAppBar;

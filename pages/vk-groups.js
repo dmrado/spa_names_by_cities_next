@@ -8,7 +8,6 @@ export default () => {
     return(
         <>
             <MenuVK />
-            <br />
             <GroupMembersList group_id={ '30022666' }/>
         </>
     );
