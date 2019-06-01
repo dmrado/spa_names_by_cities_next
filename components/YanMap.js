@@ -1,6 +1,6 @@
 import Head from 'next/head'
 //связать этот компонент с RequestNames
-import RequestNames from "./RequestNames"
+//import RequestNames from "./RequestNames"
 import Form from "./Form"
 
 //ymaps создается в объекте window как глобальная переменная после подключения api-yandex map

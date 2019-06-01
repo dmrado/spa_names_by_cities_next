@@ -18,7 +18,7 @@ const makeRequest = params => {
       return encodeURIComponent(key) + '=' + encodeURIComponent(resultFields[key])
   }).join('&');
   const dataURL = API_URL + method + '?' + queryString
-
+  //фактически dataUR выглядит так: http://localhost:3000/vk-api&groups.getMembers&{key}={resultFields[key]}
   fetch(dataURL)
     .then(response =>{
       if (response.ok) {
@@ -50,7 +50,7 @@ const getUsers = params => {
 
 const getGroupMembers = params => {
   const { success, error, group_id } = params
-  const method = 'groups.getMembers'
+  const method = 'groups.getMembers';//берем из API VK
   const fields = {
     group_id,
     count: 10
