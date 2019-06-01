@@ -37,7 +37,8 @@ const getUsers = params => {
   const { success, error, user_ids } = params
   const method = 'users.get'
   const fields = {
-    user_ids
+    user_ids: user_ids,
+    fields: 'photo_200'
   }
 
   makeRequest({
