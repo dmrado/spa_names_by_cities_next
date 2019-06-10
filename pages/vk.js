@@ -4,12 +4,18 @@ import UsersList from '../components/vk/UsersList'
 import GroupMembersList from '../components/vk/GroupMembersList'
 import Cities from '../components/vk/Cities'
 // import Locator from '../components/vk/Locator'
-import Menu from "../components/vk/MenuVK"
+// import Menu from "../components/vk/MenuVK"
+// import {RES_ARR} from '../components/vk/api'
+import InputVK from "../components/vk/InputVK"
+import InputHandler from "../components/vk/InputHandler"
+
 
 export default () => {
     return (
         <>
+            {/*RES_ARR*/}
             {'Здесь будут ВК API запросы'}
+            <InputVK id="aria-label"/>
             <br />
             <UsersList user_ids={ '1,2,5,731968' }/>
             <br />

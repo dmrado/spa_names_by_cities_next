@@ -13,7 +13,10 @@ const makeRequest = params => {
     access_token: SERVICE_KEY,
     v: '5.95'
   }
-  let resultFields = { ...fields, ...standardFields}
+  const resultFields = { ...fields, ...standardFields}
+  // function RES_ARR(){
+  //   return resultFields
+  // }
   const queryString = Object.keys(resultFields).map((key) => {
       return encodeURIComponent(key) + '=' + encodeURIComponent(resultFields[key])
   }).join('&');
@@ -104,3 +107,4 @@ export {
   getCities,
   getLocation
 }
+// export default RES_ARR;
