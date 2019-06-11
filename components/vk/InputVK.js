@@ -21,7 +21,7 @@ function Inputs() {
                 placeholder="Найти по фамилии"
                 className={classes.input}
                 inputProps={{
-                    'aria-label': 'Description',
+                    aria_label: undefined
                 }}
             />
         </div>

@@ -15,15 +15,14 @@ class InputHandler extends React.Component{
         city: undefined
     }
 
-    const arg = Inputs.inputProps.value;
-
-    gettingSurename = arg => {
-        let surname = arg.value();
-
-        if(arg){
-            const agr_url = await fetch(
-            const API_URL = 'http://localhost:3000/vk-api&users.get'
-            const data = await arg_url.json();
+    gettingSurename = async (e) => {
+        e.preventDefault();
+        let surname = Inputs.aria_label.value;
+            alert(surname);
+        if(surname){
+            const api_url = await fetch(
+           'http://localhost:3000/vk-api&users.get?X={surname}'
+            const data = await api_url.json();
             )
         }
         this.setState({

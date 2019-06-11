@@ -7,7 +7,6 @@ import Cities from '../components/vk/Cities'
 // import Menu from "../components/vk/MenuVK"
 // import {RES_ARR} from '../components/vk/api'
 import InputVK from "../components/vk/InputVK"
-import InputHandler from "../components/vk/InputHandler"
 
 
 export default () => {
@@ -15,11 +14,11 @@ export default () => {
         <>
             {/*RES_ARR*/}
             {'Здесь будут ВК API запросы'}
-            <InputVK id="aria-label"/>
+            <InputVK />
             <br />
-            <UsersList user_ids={ '1,2,5,731968' }/>
+            <UsersList user_ids = { '1,2,5,731968' }/>
             <br />
-            <GroupMembersList group_id={ '30022666' }/>
+            <GroupMembersList group_id = { '30022666' }/>
             <br />
             <Cities country_id = {'1'}/>
             <br />
