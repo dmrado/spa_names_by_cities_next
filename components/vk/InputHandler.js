@@ -27,10 +27,10 @@ class InputHandler extends React.Component{
                 )
                 }
                 this.setState({
-                    id: fields.id,
-                    first_name: fields.first_name,
-                    last_name: fields.last_name,
-                    first_name: fields.first_name
+                    id: data.fields.id,
+                    first_name: data.fields.first_name,
+                    last_name: data.fields.last_name,
+                    first_name: data.fields.first_name
                 })
             }
         }
