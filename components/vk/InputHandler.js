@@ -14,24 +14,28 @@ class InputHandler extends React.Component{
         is_closed: undefined,
         city: undefined
     }
-
-    gettingSurename = async (e) => {
-        e.preventDefault();
-        let surname = Inputs.aria_label.value;
-            alert(surname);
-        if(surname){
-            const api_url = await fetch(
-           'http://localhost:3000/vk-api&users.get?X={surname}'
-            const data = await api_url.json();
-            )
+    _handleKeyDown = e => {
+        if(e.key === 'Enter'){
+            gettingSurename = async (evt) => {
+                evt.preventDefault();
+                let surname = Inputs.aria_label.value;
+                alert(surname);
+                if(surname){
+                    const api_url = await fetch(
+                        'http://localhost:3000/vk-api&users.get?X={surname}'
+                    const data = await api_url.json();
+                )
+                }
+                this.setState({
+                    id: fields.id,
+                    first_name: fields.first_name,
+                    last_name: fields.last_name,
+                    first_name: fields.first_name
+                })
+            }
         }
-        this.setState({
-            id: fields.id,
-            first_name: fields.first_name,
-            last_name: fields.last_name,
-            first_name: fields.first_name
-        })
     }
+
 
 }
 
