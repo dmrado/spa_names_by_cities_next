@@ -17,7 +17,6 @@ class UserPageVK extends React.Component {
             this.setState({
                 user_ids: e.target.value
             })
-            // console.log('do validate');
         }
     }
 

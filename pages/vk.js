@@ -12,11 +12,7 @@ import InputVK from "../components/vk/InputVK"
 export default (props) => {
     return (
         <>
-            {/*RES_ARR*/}
             {'Здесь будут ВК API запросы'}
-            <InputVK
-                input={props.aria_label}
-            />
             <br />
             <UsersList user_ids = { '1,2,5,731968' }/>
             <br />
