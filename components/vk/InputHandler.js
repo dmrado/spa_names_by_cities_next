@@ -3,10 +3,11 @@ import { SERVICE_KEY } from './config'
 import Inputs from "InputVK"
 import getUsers from "api"
 
-class InputHandler extends React.Component{
-    constructor(props){
+class InputHandler extends React.Component {
+    constructor(props) {
         super(props)
     }
+
     state = {
         id: undefined,
         first_name: undefined,
@@ -15,12 +16,12 @@ class InputHandler extends React.Component{
         city: undefined
     }
     _handleKeyDown = e => {
-        if(e.key === 'Enter'){
+        if (e.key === 'Enter') {
             gettingSurename = async (evt) => {
                 evt.preventDefault();
                 let surname = Inputs.aria_label.value;
                 alert(surname);
-                if(surname){
+                if (surname) {
                     const api_url = await fetch(
                         'http://localhost:3000/vk-api&users.get?X={surname}'
                     const data = await api_url.json();
@@ -35,8 +36,6 @@ class InputHandler extends React.Component{
             }
         }
     }
-
-
 }
 
 export default InputHandler;

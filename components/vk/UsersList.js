@@ -18,7 +18,7 @@ class UsersList extends React.Component {
     users: null
   }
 
-  componentDidMount() {
+  nextUsers = () =>{
     getUsers({
       success: response => this.setState({
         users: response
@@ -26,6 +26,18 @@ class UsersList extends React.Component {
       error: () => {},
       user_ids: this.props.user_ids
     })
+  }
+
+//впервые загрузилось приложение
+  componentDidMount() {
+    this.nextUsers()
+  }
+
+//при имзменении props меняется state, если новое значение не равно предыдущему iser_ids
+  componentDidUpdate(prevProps){
+    if(this.props.user_ids !== prevProps.user_ids){
+    this.nextUsers()
+    }
   }
 
   render() {
@@ -39,7 +51,7 @@ class UsersList extends React.Component {
       <Paper className="p-15">
         <h3>{ 'Имена пользователей: ' + this.props.user_ids }</h3>
         { users.map(user => (
-          <div className="user" key={ user.id }>
+            <div className="user" key={ user.id }><a target="_blank" href={`https://vk.com/id${user.id}`}>
             <Card style={{width: '200px' }}>
               <CardActionArea>
                 <CardMedia style={{minHeight: '200px' }}
@@ -52,6 +64,7 @@ class UsersList extends React.Component {
                 </CardContent>
               </CardActionArea>
             </Card>
+            </a>
           </div>
         ))}
       </Paper>
