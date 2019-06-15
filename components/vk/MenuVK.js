@@ -39,6 +39,11 @@ function SimpleAppBar() {
                             </Link>
                         </Button>
                         <Button>
+                            <Link href="cities-names">
+                                <a>Яндекс + ВК</a>
+                            </Link>
+                        </Button>
+                        <Button>
                             <Link href="/vk-get-token">
                                 <a>Токен</a>
                             </Link>

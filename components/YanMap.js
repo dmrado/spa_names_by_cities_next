@@ -46,8 +46,6 @@ function YanMap() {
                     src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
                 />
             </Head>
-            {/*не понятно что делать с формой но она нужна для получения target.element.name.value*/}
-            <Form/>
 
             <div id="map" style={{width: '600px', height: '400px', borderStyle: 'solid', borderColor: 'gray'}}
             />
