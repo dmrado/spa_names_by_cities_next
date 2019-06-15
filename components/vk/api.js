@@ -1,4 +1,9 @@
-import { SERVICE_KEY } from './config'
+import {
+  APP_ID,
+  APP_URL,
+  SERVICE_KEY,
+  USER_KEY
+} from './config'
 import fetch from 'isomorphic-fetch'
 
 if(!SERVICE_KEY) {
@@ -8,9 +13,9 @@ if(!SERVICE_KEY) {
 const API_URL = 'http://localhost:3000/vk-api/'
 
 const makeRequest = params => {
-  const { success, error, method, fields } = params
+  const { success, error, method, fields, userKey } = params
   const standardFields = {
-    access_token: SERVICE_KEY,
+    access_token: userKey ? USER_KEY : SERVICE_KEY,
     v: '5.95'
   }
   const resultFields = { ...fields, ...standardFields}
@@ -26,7 +31,12 @@ const makeRequest = params => {
     .then(response =>{
       if (response.ok) {
         response.json().then(data => {
-          success(data.response)
+          if(data.error) {
+            console.log('response error: ', data.error.error_msg)
+            error("VK API Response Error")
+          } else {
+            success(data.response)
+          }
         });
       }else{
         console.log('response error: ', response)
@@ -97,14 +107,33 @@ const getLocation = params => {
     success,
     error,
     method,
-    fields
+    fields,
+    userKey: true
   })
+}
+
+const getTokenUrl = () => {
+  const fields = {
+    client_id: APP_ID,
+    display: 'page',
+    redirect_uri: APP_URL + '/callback', //https://oauth.vk.com/blank.html',
+    scope: 'friends',
+    response_type: 'token',
+    v: '5.95'
+  }
+
+  const queryString = Object.keys(fields).map((key) => {
+      return key + '=' + fields[key]
+  }).join('&');
+
+  return 'https://oauth.vk.com/authorize?' + queryString
 }
 
 export {
   getUsers,
   getGroupMembers,
   getCities,
-  getLocation
+  getLocation,
+  getTokenUrl
 }
 // export default RES_ARR;

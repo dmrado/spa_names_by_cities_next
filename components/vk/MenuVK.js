@@ -33,6 +33,16 @@ function SimpleAppBar() {
                                 <a>Города</a>
                             </Link>
                         </Button>
+                        <Button>
+                            <Link href="/vk-locator">
+                                <a>Локации</a>
+                            </Link>
+                        </Button>
+                        <Button>
+                            <Link href="/vk-get-token">
+                                <a>Токен</a>
+                            </Link>
+                        </Button>
                 </Toolbar>
             </AppBar>
         </div>

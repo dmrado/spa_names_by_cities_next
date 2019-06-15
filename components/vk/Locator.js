@@ -6,16 +6,26 @@ class Locator extends React.Component {
         count: undefined
     }
 
+    nextLocation = () =>{
+      getLocation({
+        success: response => this.setState({
+            count: response.count
+        }),
+        error: () => {},
+        //далее идут параметры из запроса в саму функцию
+        q: this.props.q,
+        city: this.props.city
+      })
+    }
+
     componentDidMount() {
-        getLocation({
-            success: response => this.setState({
-                count: response.count
-            }),
-            error: () => {},
-            //далее идут параметры из запроса в саму функцию
-            q: this.props.q,
-            city: this.props.city
-        })
+      this.nextLocation()
+    }
+
+    componentDidUpdate(prevProps){
+      if(this.props.q !== prevProps.q){
+        this.nextLocation()
+      }
     }
 
     render() {
