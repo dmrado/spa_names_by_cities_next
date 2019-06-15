@@ -1,15 +1,17 @@
 import "../sass/styles.scss"
 import MenuVK from "../components/vk/MenuVK"
 import React from "react"
-
+import InputCity from "../components/vk/InputCity"
 import Locator from "../components/vk/Locator"
 import InputVK from "../components/vk/InputVK"
-import YanMap from "../components/YanMap";
+import YanMap from "../components/YanMap"
+import Head from "next/head"
 
 class CitiesNames extends React.Component {
 
     state ={
-        q: 'Радович',
+        q: null,
+        city: '1'
     }
 
     handleKeyDown = (e) => {
@@ -22,17 +24,37 @@ class CitiesNames extends React.Component {
         }
     }
 
+    handleKeyDrop = (e) => {
+        this.setState({
+            city: e.target.value
+        })
+    }
+
+
     render() {
-        const q = this.state.q
+        const {q,city} = this.state
+        let locatorPlaceholder = <p>Выберите город и фамилию</p>
+        let mapPlaceholder = ''
+        if(q && city){
+            locatorPlaceholder = <Locator q={q} city={city} />
+            mapPlaceholder = <YanMap city={city}/>
+        }
+
         return (
             <>
+                <Head>
+                <script
+                    key="ya-map-api"
+                    src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
+                />
+                </Head>
                 <MenuVK/>
+                <InputCity handleKeyDrop={this.handleKeyDrop}/>
                 <InputVK handleKeyDown={this.handleKeyDown}/>
-                <Locator q={q} city={'1'} />
-                <YanMap />
+                {locatorPlaceholder}
+                {mapPlaceholder}
             </>
         )
     }
 }
 export default CitiesNames;
-
