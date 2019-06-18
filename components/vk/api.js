@@ -129,11 +129,28 @@ const getTokenUrl = () => {
   return 'https://oauth.vk.com/authorize?' + queryString
 }
 
+const getCountries = params => {
+  const { success, error, need_all} = params
+  const method = 'database.getCountries'
+  const fields = {
+    need_all,
+    count: 10
+  }
+
+  makeRequest({
+    success,
+    error,
+    method,
+    fields
+  })
+}
+
 export {
   getUsers,
   getGroupMembers,
   getCities,
   getLocation,
-  getTokenUrl
+  getTokenUrl,
+  getCountries
 }
 // export default RES_ARR;

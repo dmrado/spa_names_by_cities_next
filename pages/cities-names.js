@@ -16,14 +16,14 @@ class CitiesNames extends React.Component {
 
     handleKeyDown = (e) => {
        // console.log(e.target.value);
-
+//
         if (e.key === 'Enter') {
             this.setState({
                 q: e.target.value
             })
         }
     }
-
+// выпадает город из списка
     handleKeyDrop = (e) => {
         this.setState({
             city: e.target.value
