@@ -2,7 +2,7 @@ import React from 'react'
 import { getCountries } from './api'
 import Paper from '@material-ui/core/Paper'
 import LinearProgress from '@material-ui/core/LinearProgress'
-
+import TablePagination from '../ui/TablePagination'
 
 class Countries extends React.Component {
     state = {
@@ -12,11 +12,11 @@ class Countries extends React.Component {
     componentDidMount() {
         getCountries({
             success: response => this.setState({
-                getCountries: response.items
+                countries: response.items
             }),
             error: () => {},
-            countries : this.props.country_id
-        })//что с error в пропсе не то сидит
+            count: this.props.count
+        })
     }
 
     render() {
@@ -28,13 +28,10 @@ class Countries extends React.Component {
 
         return (
             <Paper className="p-15">
-                <h3>{ 'Страны пользователей: ' + this.props.items.title }</h3>
-                { countries.map(country => (
-                    <div className="country" key={ country.id }>
-                        { country.title }
-                    </div>
-                ))}
+                <h3>{ 'Страны пользователей ' }</h3>
+                <TablePagination rows={ countries }/>
             </Paper>
+
         )
     }
 }

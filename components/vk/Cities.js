@@ -2,6 +2,7 @@ import React from 'react'
 import { getCities } from './api'
 import Paper from '@material-ui/core/Paper'
 import LinearProgress from '@material-ui/core/LinearProgress'
+import TablePagination from '../ui/TablePagination'
 
 
 class Cities extends React.Component {
@@ -29,11 +30,7 @@ class Cities extends React.Component {
         return (
             <Paper className="p-15">
                 <h3>{ 'Города страны пользователей: ' + this.props.country_id }</h3>
-                { cities.map(city => (
-                    <div className="city" key={ city.id }>
-                        { city.title }
-                    </div>
-                ))}
+                <TablePagination rows={ cities }/>
             </Paper>
         )
     }

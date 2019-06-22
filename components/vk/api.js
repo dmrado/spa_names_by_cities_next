@@ -130,11 +130,11 @@ const getTokenUrl = () => {
 }
 
 const getCountries = params => {
-  const { success, error, need_all} = params
+  const { success, error, need_all, count} = params
   const method = 'database.getCountries'
   const fields = {
     need_all,
-    count: 10
+    count
   }
 
   makeRequest({
