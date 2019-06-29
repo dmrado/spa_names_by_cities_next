@@ -11,7 +11,8 @@ class CitiesNames extends React.Component {
 
     state ={
         q: null,
-        city: '1'
+        city: '1',
+        cityName: 'Moscow'
     }
 
     handleKeyDown = (e) => {
@@ -23,36 +24,43 @@ class CitiesNames extends React.Component {
             })
         }
     }
-// выпадает город из списка
+// выпадает город из списка "если что-то меняется измени город"
     handleKeyDrop = (e) => {
         this.setState({
-            city: e.target.value
+            city: e.target.value,
+            cityName: e.nativeEvent.target[e.nativeEvent.target.selectedIndex].text
         })
     }
 
 
     render() {
-        const {q,city} = this.state
+        const {q,city, cityName} = this.state
         let locatorPlaceholder = <p>Выберите город и фамилию</p>
         let mapPlaceholder = ''
         if(q && city){
-            locatorPlaceholder = <Locator q={q} city={city} />
-            mapPlaceholder = <YanMap city={city}/>
+            locatorPlaceholder = <Locator q={q} city={city} cityName={cityName} />
+            mapPlaceholder = <YanMap cityName={cityName}/>
         }
 
         return (
             <>
                 <Head>
+                {/*Добавляет в head строку для работы с api yandex в index.html*/}
                 <script
                     key="ya-map-api"
                     src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
                 />
                 </Head>
                 <MenuVK/>
+                {/*добавляет компоненту с меню*/}
                 <InputCity handleKeyDrop={this.handleKeyDrop}/>
+                {/*добавляет поле селекта городов и если оно меняется - меняет стейт*/}
                 <InputVK handleKeyDown={this.handleKeyDown}/>
+                {/*меняется фамилия - меняется стейт*/}
                 {locatorPlaceholder}
+                {/*отображает фамилию и город*/}
                 {mapPlaceholder}
+                {/*отображает карту города из ya api*/}
             </>
         )
     }

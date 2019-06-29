@@ -23,13 +23,14 @@ class Locator extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-      if(this.props.q !== prevProps.q){
+      if(this.props.q !== prevProps.q || this.props.city !== prevProps.city){
         this.nextLocation()
       }
     }
 
     render() {
         const { count } = this.state
+        console.log(count)
 
         if(typeof count === 'undefined') {
             return 'Loading...'
@@ -37,7 +38,7 @@ class Locator extends React.Component {
 
         return (
             <>
-                <h3>{ `Пользователей ${this.props.q} в городе ${this.props.city}: ${count} `}</h3>
+                <h3>{ `Пользователей ${this.props.q} в городе ${this.props.cityName}: ${count} `}</h3>
             </>
         )
     }
