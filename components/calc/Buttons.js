@@ -17,6 +17,6 @@ const Divide = props => {
     return <button className="button" onClick={ () => props.updateNumber(props.a / props.b)}>/</button>
 }
 const Fact = props => {
-    return <button className="button" onClick={ () => props.updateNumber(props.fact(this.state.a))}>Факториал первого числа</button>
+    return <button className="button" onClick={ () => props.updateNumber(props.fact(props.a))}>Факториал первого числа</button>
 }
 export {Plus, Minus, Multi, Divide, Fact}
