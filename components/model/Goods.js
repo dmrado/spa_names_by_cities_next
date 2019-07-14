@@ -21,15 +21,24 @@ const items = [
     }
 ]
 
+// const getItems = (type) => {
+//     if (type === 'all') {
+//         return items
+//     }
+//    // return items.filter( item => (type === item.type))
+//     return items.filter(function(item){
+//         if(type === item.type){
+//             return true
+//         }
+//     })
+// }
+// export {getItems}
+
 const getItems = (type) => {
-    if (type === 'all') {
+    if(type === 'all'){
         return items
     }
-   // return items.filter( item => (type === item.type))
-    return items.filter(function(item){
-        if(type === item.type){
-            return true
-        }
-    })
+    return items.filter(item =>  (type === item.type))
 }
+
 export {getItems}

@@ -28,23 +28,23 @@ import {getItems} from "../components/model/Goods"
 // }
 
 export default class GoodsPage extends React.Component{
-    constructor (props){
-        super(props)
-    }
     state = {
         type: 'all'
     }
-    changeType (type) {
-        this.setState ({type: type})
-    }
 
+    changeType = (type) =>{
+        this.setState({type})
+    }
+    //this.setState всегда вызывает render и все методы жизненного цикла изменений
     render(){
+        const items = getItems(this.state.type);
         return(
             <>
-                <button onClick={(e) => this.changeType('fruits')}>Fruits</button>
-                <button onClick={(e) => this.changeType('veg')}>Vegetables</button>
-                <button onClick={(e) => this.changeType('all')}>All</button>
-                <List className="list" items={getItems(this.state.type)}/>
+                <button className="but" onClick={(e) => this.changeType('fruits')}>Хочу фрукты</button>
+                <button className="but" onClick={(e) => this.changeType('veg')}>а овощи?!</button>
+                <button className="but" onClick={(e) => this.changeType('all')}>Все хочу</button>
+
+                <List className="list" items={items}/>
             </>
         )
     }
