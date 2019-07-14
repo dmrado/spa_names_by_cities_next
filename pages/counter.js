@@ -48,6 +48,7 @@ class Count extends React.Component{
     // multiplyNumbers = () => this.updateNumber( this.state.a * this.state.b )
     // divideNumbers = () => this.updateNumber( this.state.a / this.state.b )
 
+    //let arg = this.state.a
     fact = (arg) =>{
         if (arg === 1){
             return 1
@@ -68,7 +69,7 @@ class Count extends React.Component{
                 <Minus a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Multi a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Divide a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
-                <Fact a={this.state.a} fact={(e) => this.fact}/>
+                <Fact a={this.state.a} updateNumber={(e) => this.fact(this.state.a)}/>
 
                 {/*<button className="button" onClick={ this.divideNumbers }>/</button>*/}
                 <div>
