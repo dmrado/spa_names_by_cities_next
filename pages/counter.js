@@ -49,12 +49,6 @@ class Count extends React.Component{
     // divideNumbers = () => this.updateNumber( this.state.a / this.state.b )
 
     //let arg = this.state.a
-    fact = (arg) =>{
-        if (arg === 1){
-            return 1
-        }
-        return arg * this.fact(arg-1)
-    }
 
 //как только стейт изменился запускается render() и весь каскад методов жизненного цикла изменений
     render(){
@@ -69,7 +63,7 @@ class Count extends React.Component{
                 <Minus a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Multi a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Divide a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
-                <Fact a={this.state.a} updateNumber={(e) => this.fact(this.state.a)}/>
+                <Fact a={this.state.a} updateNumber={this.updateNumber}/>
 
                 {/*<button className="button" onClick={ this.divideNumbers }>/</button>*/}
                 <div>

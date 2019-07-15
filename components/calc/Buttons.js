@@ -16,7 +16,14 @@ const Multi = props => {
 const Divide = props => {
     return <button className="button" onClick={ () => props.updateNumber(props.a / props.b)}>/</button>
 }
+
+const fact = (arg) => {
+  if (arg <= 1) {
+    return 1
+  }
+  return arg * fact(arg - 1)
+}
 const Fact = props => {
-    return <button className="button" onClick={ () => props.updateNumber(props.fact(props.a))}>Факториал первого числа</button>
+    return <button className="button" onClick={ () => props.updateNumber(fact(props.a))}>Факториал первого числа</button>
 }
 export {Plus, Minus, Multi, Divide, Fact}
