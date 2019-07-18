@@ -5,6 +5,8 @@ import {Multi} from "../components/calc/Buttons"
 import {Divide} from "../components/calc/Buttons"
 import {Fact} from "../components/calc/Buttons"
 import {Square} from "../components/calc/Buttons"
+import {Percent} from "../components/calc/Buttons"
+
 class Count extends React.Component{
     state = {
         num: 0,
@@ -54,16 +56,20 @@ class Count extends React.Component{
         return(
             <>
 
-                <input type ="number" placeholder="введите первое число" onChange={ this.changeA }/>
-                <input type ="number" placeholder="введите второе число" onChange={ this.changeB }/>
+                <input type ="number" placeholder="введите число А" onChange={ this.changeA }/>
+                <input type ="number" placeholder="введите число В" onChange={ this.changeB }/>
                 <br/>
                 <Plus a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 {/*если поставить с колл-бек круглые скобки это будет не колл-бек а функция которая выполнится прямо здесь*/}
                 <Minus a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Multi a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Divide a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
+                    <br/>
                 <Fact a={this.state.a} updateNumber={this.updateNumber}/>
+                    <br/>
                 <Square a={this.state.a} updateNumber={this.updateNumber}/>
+                    <br/>
+                <Percent a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
 
                 {/*<button className="button" onClick={ this.divideNumbers }>/</button>*/}
                 <div>

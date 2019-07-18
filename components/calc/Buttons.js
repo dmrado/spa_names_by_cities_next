@@ -24,14 +24,22 @@ const fact = (arg) => {
   return arg * fact(arg - 1)
 }
 const Fact = props => {
-    return <button className="button" onClick={ () => props.updateNumber(fact(props.a))}>Факториал первого числа</button>
+    return <button className="button" onClick={ () => props.updateNumber(fact(props.a))}>Факториал А</button>
 }
 
 const square = (arg) => {
-    debugger;
     return Math.sqrt(arg)
 }
 const Square = props => {
-    return <button className="button" onClick={ () => props.updateNumber(square(props.a))}>Квадратный корень первого числа</button>
+    return <button className="button" onClick={ () => props.updateNumber(square(props.a))}>Квадратный корень А</button>
 }
-export {Plus, Minus, Multi, Divide, Fact, Square}
+
+const percent = (a, b) => {
+    let c = a /100 * b
+    return c
+}
+
+const Percent = props => {
+    return <button className="button" onClick={ () => props.updateNumber(percent(props.a, props.b))}>% B от А</button>
+}
+export {Plus, Minus, Multi, Divide, Fact, Square, Percent}
