@@ -26,4 +26,11 @@ const fact = (arg) => {
 const Fact = props => {
     return <button className="button" onClick={ () => props.updateNumber(fact(props.a))}>Факториал первого числа</button>
 }
-export {Plus, Minus, Multi, Divide, Fact}
+
+const square = (arg) => {
+    return Math.sqrt(arg)
+}
+const Square = props => {
+    return <button className="button" onClick={ () => props.updateNumber(square(props.a))}>Квадратный корень первого числа</button>
+}
+export {Plus, Minus, Multi, Divide, Fact, Square}
