@@ -28,6 +28,7 @@ const Fact = props => {
 }
 
 const square = (arg) => {
+    debugger;
     return Math.sqrt(arg)
 }
 const Square = props => {

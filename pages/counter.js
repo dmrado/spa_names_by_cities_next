@@ -63,7 +63,7 @@ class Count extends React.Component{
                 <Multi a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Divide a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Fact a={this.state.a} updateNumber={this.updateNumber}/>
-                <Square a={this.state.s} updateNumber={this.updateNumber}/>
+                <Square a={this.state.a} updateNumber={this.updateNumber}/>
 
                 {/*<button className="button" onClick={ this.divideNumbers }>/</button>*/}
                 <div>
