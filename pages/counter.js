@@ -59,19 +59,19 @@ class Count extends React.Component{
             <>
 
                 <input type ="number" placeholder="введите число А" onChange={ this.changeA }/>
+                    <br/>
                 <input type ="number" placeholder="введите число В" onChange={ this.changeB }/>
-                <br/>
+                    <br/>
                 <Plus a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 {/*если поставить с колл-бек круглые скобки это будет не колл-бек а функция которая выполнится прямо здесь*/}
                 <Minus a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Multi a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Divide a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
-                <Fact a={this.state.a} updateNumber={this.updateNumber}/>
-                    <br/>
                 <Square a={this.state.a} updateNumber={this.updateNumber}/>
-                    <br/>
-                <Percent a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Power a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
+                    <br/>
+                <Fact a={this.state.a} updateNumber={this.updateNumber}/>
+                <Percent a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
 
                 {/*<button className="button" onClick={ this.divideNumbers }>/</button>*/}
                 <div className="alert">

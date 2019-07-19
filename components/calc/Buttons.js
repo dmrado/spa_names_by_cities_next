@@ -30,7 +30,7 @@ const square = (arg) => {
     return Math.sqrt(arg)
 }
 const Square = props => {
-    return <button className="button" onClick={ () => props.updateNumber(square(props.a))}>Квадратный корень А</button>
+    return <button className="button" onClick={ () => props.updateNumber(square(props.a))}>&#8730; А</button>
 }
 
 const percent = (a, b) => {
@@ -48,6 +48,6 @@ const power = (a, b) => {
 }
 
 const Power = props => {
-    return <button className="button" onClick={() => props.updateNumber(power(props.a, props.b))}>А в степени В</button>
+    return <button className="button" onClick={() => props.updateNumber(power(props.a, props.b))}>А<sup> В</sup></button>
 }
 export {Plus, Minus, Multi, Divide, Fact, Square, Percent, Power}
