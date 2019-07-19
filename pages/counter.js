@@ -6,6 +6,8 @@ import {Divide} from "../components/calc/Buttons"
 import {Fact} from "../components/calc/Buttons"
 import {Square} from "../components/calc/Buttons"
 import {Percent} from "../components/calc/Buttons"
+import {Power} from "../components/calc/Buttons"
+
 
 class Count extends React.Component{
     state = {
@@ -64,15 +66,15 @@ class Count extends React.Component{
                 <Minus a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Multi a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
                 <Divide a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
-                    <br/>
                 <Fact a={this.state.a} updateNumber={this.updateNumber}/>
                     <br/>
                 <Square a={this.state.a} updateNumber={this.updateNumber}/>
                     <br/>
                 <Percent a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
+                <Power a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
 
                 {/*<button className="button" onClick={ this.divideNumbers }>/</button>*/}
-                <div>
+                <div className="alert">
                     {this.state.num}
                 </div>
 

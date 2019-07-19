@@ -1,10 +1,9 @@
-import React from "react";
-
+import React from "react"
 
 const Plus = props => {
     //передать внутрь "a" и "b" и функцию возвращающую функцию, обновляющую родителя иными словами - результат сложения а и b
 
-    return <button className="button" onClick={ () => props.updateNumber(parseInt(props.a) + parseInt(props.b)) }>+</button>
+    return <button variant="contained" color="primary" className="button" onClick={ () => props.updateNumber(parseInt(props.a) + parseInt(props.b)) }>+</button>
 }
 
 const Minus = props => {
@@ -42,4 +41,13 @@ const percent = (a, b) => {
 const Percent = props => {
     return <button className="button" onClick={ () => props.updateNumber(percent(props.a, props.b))}>% B от А</button>
 }
-export {Plus, Minus, Multi, Divide, Fact, Square, Percent}
+
+const power = (a, b) => {
+    let c = Math.pow(a, b)
+    return c
+}
+
+const Power = props => {
+    return <button className="button" onClick={() => props.updateNumber(power(props.a, props.b))}>А в степени В</button>
+}
+export {Plus, Minus, Multi, Divide, Fact, Square, Percent, Power}
