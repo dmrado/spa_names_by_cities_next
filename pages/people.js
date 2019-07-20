@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch'
 
 const getId = (urlFilm)=>{
     return urlFilm.split('/').pop()
-}//строку с адресом к фильму методом сплит разделяем слешем и последний элемент массива методом pop добавляем
+}//метод split разбивает строку на массив по признаку слеш, pop бере последний элемент массива
 
 class People extends React.Component{
     state = {
