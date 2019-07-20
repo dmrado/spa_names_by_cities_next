@@ -11,7 +11,9 @@ const fetch = require('isomorphic-fetch');
 
 app.prepare().then(() => {
   const server = express()
-
+    server.get('/people/:id', (req, res) => {
+        return app.render(req, res, '/people', { id: req.params.id })
+    })
   server.get('/vk-api/:method', (req, res) => {
     const vkUrl = 'http://api.vk.com/method/' + req.params.method + '?' + url.parse(req.url).query;
     console.log('vk url: ', vkUrl)
