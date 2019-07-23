@@ -20,7 +20,7 @@ class People extends React.Component{
                 if (response.status >= 400) {
                     throw new Error("Bad response from server")
                 }
-                return response.json()
+                return response.json()// это промис
             }).then((answer) =>{
             this.setState({people:answer})
 
