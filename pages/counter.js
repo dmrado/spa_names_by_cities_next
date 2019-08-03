@@ -54,7 +54,15 @@ class Count extends React.Component{
     // divideNumbers = () => this.updateNumber( this.state.a / this.state.b )
 
 //как только стейт изменился запускается render() и весь каскад методов жизненного цикла изменений
+
+
     render(){
+
+        const buttonProps = {
+            a:this.state.a,
+            b:this.state.b,
+            updateNumber:this.updateNumber,
+        }
         return(
             <>
 
@@ -62,16 +70,16 @@ class Count extends React.Component{
                     <br/>
                 <input type ="number" placeholder="введите число В" onChange={ this.changeB }/>
                     <br/>
-                <Plus a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
+                <Plus {...buttonProps}/>
                 {/*если поставить с колл-бек круглые скобки это будет не колл-бек а функция которая выполнится прямо здесь*/}
-                <Minus a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
-                <Multi a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
-                <Divide a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
-                <Square a={this.state.a} updateNumber={this.updateNumber}/>
-                <Power a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
+                <Minus {...buttonProps}/>
+                <Multi {...buttonProps}/>
+                <Divide {...buttonProps}/>
+                <Square {...buttonProps}/>
+                <Power {...buttonProps}/>
                     <br/>
-                <Fact a={this.state.a} updateNumber={this.updateNumber}/>
-                <Percent a={this.state.a} b={this.state.b} updateNumber={this.updateNumber}/>
+                <Fact {...buttonProps}/>
+                <Percent {...buttonProps}/>
 
                 {/*<button className="button" onClick={ this.divideNumbers }>/</button>*/}
                 <div className="alert">

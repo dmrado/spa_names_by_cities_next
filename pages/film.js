@@ -1,11 +1,11 @@
 import fetch from 'isomorphic-fetch'
 const getId = (urlFilm)=>{
     return urlFilm.split('/').pop()
-}//метод split разбивает строку на массив по признаку слеш, pop бере последний элемент массива
+}//метод split разбивает строку на массив по признаку слеш, pop берем последний элемент массива
 
-class People extends React.Component{
+class Film extends React.Component{
     state = {
-        people: undefined
+        film: undefined
     }
 
     static getInitialProps ({ query: { id } }) {
@@ -13,18 +13,18 @@ class People extends React.Component{
     }
 
     componentDidMount(){
-        fetch('https://swapi.co/api/people/' + this.props.id)
+        fetch('https://swapi.co/api/films/' + this.props.id)
             .then((response)=>{
                 if (response.status >= 400) {
                     throw new Error("Bad response from server")
                 }
                 return response.json()// это промис
             }).then((answer) =>{
-                this.setState({people:answer})
+            this.setState({film:answer})
 
-                console.log(answer)
-                console.log(answer.films)
-            })
+            console.log(answer)
+            console.log(answer.films)
+        })
 
         //200 - все нормально
         //300 - редирект
@@ -35,13 +35,13 @@ class People extends React.Component{
     render(){
         console.log(this.props)
         if(!this.state.people){//он пустой
-            return(<div>{'Сделайте запрос персонажа'}</div>)
+            return(<div>{'Сделайте запрос фильма'}</div>)
         }
         return(
             <div>
-                {this.state.people.name}
+                {this.state.film.title}
                 <ul>
-                    {/*файл server.js строки 14-16*/}
+                    {/*файл server.js строки 17-19*/}
                     {this.state.people.films.map((item) => {
                         return <li><a href={'/film/'+ getId(item)}>{item}</a></li>
                     })}
@@ -50,6 +50,6 @@ class People extends React.Component{
         )}
 }
 
-export default People
+export default Film
 
 import React from 'react'

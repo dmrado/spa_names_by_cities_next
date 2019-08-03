@@ -1,22 +1,41 @@
-import ReactDOM from "react"
+import React from "react"
+
+// const Closure = () => {
+//     const printAll = () => {
+//         const name = "Ivan"
+//         const surname = "Ivanov"
+//         const printName = () => {
+//             //console.log(name + ' ' + surname)
+//             return name + ' ' + surname
+//         }
+//         return printName
+//         //именно без скобок, потому что мы не хотим получить Ивана Иванова, а хотим получить элемент управления, дергая который му бдем получать Ивана Иванова, этот элемент управления - это самостоятельная сущность, кторую потом примет новая функция printFinal
+//     }
+//     const printFinal = printAll()
+//
+//     const h1 = ReactDOM.createElement('h1', null, 'Привет Мир!')
+//     return(
+//         <div className="someClass">
+//             {h1}
+//             от пользователя с именем: {printFinal()}
+//         </div>
+//     )
+// }
 
 const Closure = () => {
-    const printAll = () => {
-        const name = "Ivan"
-        const surname = "Ivanov"
-        const printName = () => {
-            console.log(name + surname)
-            return name + surname
+    const something = () => {
+        let arg = 0
+        const printArg = () => {
+            return arg += 1
         }
-        return printName
+        return printArg
     }
-    const printFinal = printAll()
+    const getArg = something()
 
-    const h1 = ReactDOM.createElement('h1', null, 'Привет МИР!')
-    return(
+    return (
         <div className="someClass">
-            {h1}
-            {printFinal()}
+            {getArg()} {getArg()} {getArg()} {getArg()} {getArg()}
+            <h1><p>Вышел зайчег погуль-лять</p></h1>
         </div>
     )
 }
